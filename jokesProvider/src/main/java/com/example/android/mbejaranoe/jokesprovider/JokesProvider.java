@@ -10,7 +10,7 @@ public class JokesProvider {
 
     public String getJoke(){
 
-        int randomIndex = (int) (Math.random() * jokes.length) + 1;
+        int randomIndex = (int)(Math.random() * ((jokes.length) + 1));
         return jokes[randomIndex];
     }
 }
