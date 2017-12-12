@@ -10,7 +10,14 @@ public class JokesProvider {
 
     public String getJoke(){
 
-        int randomIndex = (int)(Math.random() * ((jokes.length) + 1));
+        int randomIndex = 0;
+        boolean found = false;
+        while (!found){
+            randomIndex = (int)(Math.random() * ((jokes.length) + 1));
+            if ((randomIndex < jokes.length) && (randomIndex >= 0)) {
+                found = true;
+            }
+        }
         return jokes[randomIndex];
     }
 }
