@@ -2,11 +2,11 @@ package com.example.android.mbejaranoe.jokesprovider;
 
 public class JokesProvider {
 
-    public String jokes[] = {"Adiós tocayo \n -Adiós, mmmmmm, adios...",
+    public String jokes[] = {"+Adios tocayo \n -Adios, mmmmmm, adios...",
             "Repetir no vale...",
-            "Coherlo ahí", "Con los cuernos, capitán, con los cuernos",
+            "Coherlo ahi", "Con los cuernos, capitan, con los cuernos",
             "Pues yo no juego...",
-            "Me parece a mi que tú no vienes aquí a cazar..."};
+            "Me parece a mi que tu no vienes aqui a cazar..."};
 
     public String getJoke(){
 

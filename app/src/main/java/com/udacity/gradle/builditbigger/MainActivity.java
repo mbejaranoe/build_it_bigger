@@ -8,17 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.android.mbejaranoe.jokesdisplayer.JokesDisplayer;
-import com.example.android.mbejaranoe.jokesprovider.JokesProvider;
 
-public class MainActivity extends AppCompatActivity {
-
-    public JokesProvider jokesProvider;
+public class MainActivity extends AppCompatActivity implements JokeReceivedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        jokesProvider = new JokesProvider();
     }
 
 
@@ -45,9 +41,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        new EndpointAsyncTask(this).execute();
+    }
 
+    @Override
+    public void onJokeReceived(String jokeString) {
+        startJokesDisplayerActivity(jokeString);
+    }
+
+    private void startJokesDisplayerActivity(String jokeString) {
         Intent intent = new Intent(this, JokesDisplayer.class);
-        intent.putExtra("joke", jokesProvider.getJoke());
+        intent.putExtra("joke", jokeString);
         startActivity(intent);
     }
 }
