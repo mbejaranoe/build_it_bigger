@@ -23,6 +23,10 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String> {
         this.jokeReceivedListener = jokeReceivedListener;
     }
 
+    public EndpointAsyncTask() {
+
+    }
+
     @Override
     protected String doInBackground(Void... voids) {
         if(myApiService == null) {  // Only do this once
@@ -52,6 +56,7 @@ public class EndpointAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
+        super.onPostExecute(s);
         jokeReceivedListener.onJokeReceived(s);
     }
 }
