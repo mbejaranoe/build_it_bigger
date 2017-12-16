@@ -25,6 +25,7 @@ public class EndpointAsyncTaskTest extends InstrumentationTestCase {
             @Override
             protected void onPostExecute(String s) {
                 assertNotNull(s);
+                assertFalse(s.equals(""));
                 signal.countDown();
             }
         };
