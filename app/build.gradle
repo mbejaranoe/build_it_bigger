@@ -19,6 +19,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            dimension "onlyOneDimension"
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            dimension "onlyOneDimension"
+        }
+    }
+
+    flavorDimensions "onlyOneDimension"
 }
 
 sourceCompatibility = "1.7"
@@ -33,7 +45,7 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:1.0.1'
     androidTestCompile 'com.android.support.test:rules:1.0.1'
     compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.google.android.gms:play-services-ads:11.6.2'
+    freeCompile 'com.google.android.gms:play-services-ads:11.6.2'
     compile project(':jokesProvider')
     compile project(':jokesDisplayer')
     compile project(path: ':backend', configuration: 'android-endpoints')
